@@ -8,7 +8,11 @@ run:
     cargo run --release --manifest-path kafql-store/Cargo.toml -- --kafka-brokers localhost:9092 --topics "test:1" --http-listen "0.0.0.0:3000"
 
 test:
-    cargo test --manifest-path kafql-store/Cargo.toml
+    cargo test --manifest-path kafql-store/Cargo.toml -- --test-threads=1
+
+integration-test:
+    # docker build -t kafql-store .
+    cargo test --manifest-path kafql-store/Cargo.toml --test integration
 
 fmt:
     cargo fmt --all
