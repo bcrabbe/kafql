@@ -1,0 +1,25 @@
+{
+  "name": "kafql-store",
+
+  "dockerFile": "Dockerfile",
+
+  "hostRequirements": {
+    "cpus": 2,
+    "memory": "4gb",
+    "storage": "32gb"
+  },
+
+  "forwardPorts": [3000, 9092],
+
+  "portsAttributes": {
+    "3000": { "label": "kafql-store API" },
+    "9092": { "label": "Kafka Broker" }
+  },
+
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": {},
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  }
+}

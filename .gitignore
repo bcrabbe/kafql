@@ -1,0 +1,13 @@
+debug
+target
+Cargo.lock
+**/*.rs.bk
+*~
+*#
+.#*
+.*DS_Store
+.DS_Store
+*.log
+.env
+.vscode
+license.html
