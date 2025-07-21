@@ -8,7 +8,6 @@ use rdkafka::{
     message::Message,
     topic_partition_list::TopicPartitionList,
     util::get_rdkafka_version,
-    ClientConfig as KafkaConfig,
 };
 use std::collections::HashMap;
 use tracing::{error, info, warn};
