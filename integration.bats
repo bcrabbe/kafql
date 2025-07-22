@@ -40,4 +40,4 @@ teardown() {
     echo "$output"
     [[ "$output" == *'"key":"foo"'* ]]
     [[ "$output" == *'"hello":"world"'* ]]
-} 
+}

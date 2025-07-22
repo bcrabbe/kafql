@@ -11,8 +11,7 @@ test:
     cargo test --manifest-path kafql-store/Cargo.toml -- --test-threads=1
 
 integration-test:
-    # docker build -t kafql-store .
-    cargo test --manifest-path kafql-store/Cargo.toml --test integration
+    bats integration.bats
 
 fmt:
     cargo fmt --all
