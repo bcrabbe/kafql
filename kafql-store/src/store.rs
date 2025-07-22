@@ -40,10 +40,6 @@ impl Store {
         self.data.get(key).map(|r| r.clone())
     }
 
-    pub fn delete(&self, key: &str) -> Option<Record> {
-        self.data.remove(key).map(|(_, record)| record)
-    }
-
     pub fn list(&self) -> Vec<Record> {
         self.data.iter().map(|r| r.clone()).collect()
     }
