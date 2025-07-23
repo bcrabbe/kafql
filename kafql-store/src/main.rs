@@ -26,7 +26,6 @@ struct Config {
     http_listen: String,
 }
 
-#[cfg(not(test))]
 #[tokio::main]
 async fn main() -> Result<()> {
     // Initialize logging
