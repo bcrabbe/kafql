@@ -20,6 +20,25 @@ jobs:
       - name: Test
         run: cargo test --manifest-path kafql-store/Cargo.toml -- --test-threads=1
 
+  integration-test:
+    runs-on: ubuntu-latest
+    needs: build-test
+    steps:
+      - uses: actions/checkout@v4
+
+      # Install just via the recommended action
+      - name: Install just
+        uses: extractions/setup-just@v3
+
+      # Install bats-core (system dependency for integration-test)
+      - name: Install Bats
+        run: sudo apt-get update && sudo apt-get install -y bats
+
+      # If you need Docker Compose for start-local/stop-local, install it (Ubuntu runners have it pre-installed in most cases)
+
+      - name: Run integration tests via just
+        run: just integration-test
+
   docker:
     runs-on: ubuntu-latest
     needs: build-test

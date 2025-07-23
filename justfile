@@ -4,8 +4,19 @@ default:
 build:
     cargo build --release --manifest-path kafql-store/Cargo.toml
 
+docker-build:
+    docker build -t kafql-store .
+
 run:
-    cargo run --release --manifest-path kafql-store/Cargo.toml -- --kafka-brokers localhost:9092 --topics "test:1" --http-listen "0.0.0.0:3000"
+    cargo run \
+    --release \
+    --manifest-path kafql-store/Cargo.toml
+
+start-local:
+    ./start-local.sh
+
+stop-local:
+    docker-compose down -v
 
 test:
     cargo test --manifest-path kafql-store/Cargo.toml -- --test-threads=1
