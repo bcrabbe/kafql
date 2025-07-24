@@ -5,7 +5,7 @@ setup_file() {
 }
 
 teardown_file() {
-    just stop local
+    just stop-local
 }
 
 @test "produce and fetch" {
