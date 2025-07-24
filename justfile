@@ -16,7 +16,7 @@ start-local:
     ./start-local.sh
 
 stop-local:
-    docker-compose down -v
+    docker compose down -v
 
 test:
     cargo test --manifest-path kafql-store/Cargo.toml -- --test-threads=1
