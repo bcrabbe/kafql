@@ -3,7 +3,7 @@ use anyhow::Result;
 use rdkafka::{
     client::ClientContext,
     config::{ClientConfig, RDKafkaLogLevel},
-    consumer::{Consumer, ConsumerContext, Rebalance, StreamConsumer},
+    consumer::{BaseConsumer, Consumer, ConsumerContext, Rebalance, StreamConsumer},
     error::KafkaResult,
     message::Message,
     topic_partition_list::TopicPartitionList,
@@ -17,11 +17,11 @@ struct CustomContext;
 impl ClientContext for CustomContext {}
 
 impl ConsumerContext for CustomContext {
-    fn pre_rebalance(&self, rebalance: &Rebalance) {
+    fn pre_rebalance(&self, _consumer: &BaseConsumer<Self>, rebalance: &Rebalance) {
         info!("Pre rebalance: {:?}", rebalance);
     }
 
-    fn post_rebalance(&self, rebalance: &Rebalance) {
+    fn post_rebalance(&self, _consumer: &BaseConsumer<Self>, rebalance: &Rebalance) {
         info!("Post rebalance: {:?}", rebalance);
     }
 
