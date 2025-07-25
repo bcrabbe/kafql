@@ -22,8 +22,16 @@ cargo run --release -- \
 
 ### Configuration
 - `--kafka-brokers`: Comma-separated list of Kafka brokers
+- `--group-id`: Consumer group id (default `kafql-store`)
 - `--topics`: List of topics and partition counts, e.g. `topic1:1,topic2:3`
 - `--http-listen`: Address for the HTTP API server (default: `0.0.0.0:3000`)
+
+arguments may alternatively be passed as env vars
+
+- `KAFKA_BROKERS`
+- `KAFKA_GROUP_ID`
+- `KAFKA_TOPICS`
+- `HTTP_LISTEN`
 
 ### REST API
 - `GET /records` — List all records
